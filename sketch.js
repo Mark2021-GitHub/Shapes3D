@@ -82,16 +82,20 @@ function setup() {
   px = createSlider(-100, 100, 100, 1);
   px.position(check3.x, check3.y + 20);
   px.style("width", "80px");
+  
   py = createSlider(-100, 100, -100, 1);
   py.position(px.x + 100, px.y);
   py.style("width", "80px");
+  
   pz = createSlider(-100, 100, 100, 1);
   pz.position(py.x + 100, py.y);
   pz.style("width", "80px");
 
   materialColor = createColorPicker("#FF0000");
-  materialColor.position(100, height + 50);
+  materialColor.position(Material.x+100, Material.y);
   materialColor.changed(eventColor);
+  
+  
   div5 = createDiv("Material Color: " + materialColor.value());
   div5.style("font-size", "16px");
   div5.position(materialColor.x + 60, materialColor.y);
