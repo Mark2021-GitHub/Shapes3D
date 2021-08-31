@@ -9,6 +9,7 @@ let pV, dV;
 var font, img;
 var d1, d2;
 var tx, ty;
+let cnv;
 
 function preload() {
   font = loadFont("Inconsolata.ttf");
@@ -16,7 +17,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(400, 400, WEBGL);
+  cnv=createCanvas(400, 400, WEBGL);
   //var canvas =  createCanvas(windowWidth, windowHeight, WEBGL);
 
   textFont(font);
@@ -32,16 +33,19 @@ function setup() {
   sc = 1;
 
   slider1 = createSlider(3, 48, 24, 1);
-  slider1.position(10, height + 10);
+  slider1.position(cnv.position().x, cnv.position().y+height + 10);
   slider1.style("width", "80px");
+  
   slider2 = createSlider(3, 32, 16, 1);
-  slider2.position(100, height + 10);
+  slider2.position(slider1.x+100, slider1.y);
   slider2.style("width", "80px");
+  
   slider3 = createSlider(1, 10, 1, 1);
-  slider3.position(200, height + 10);
+  slider3.position(slider2.x+100, slider1.y);
   slider3.style("width", "80px");
+  
   slider4 = createSlider(0, 255, 255, 5);
-  slider4.position(300, height + 10);
+  slider4.position(slider3.x+100, slider1.y);
   slider4.style("width", "100px");
 
   div1 = createDiv("detailX:");
